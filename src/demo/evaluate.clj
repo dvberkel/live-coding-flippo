@@ -17,3 +17,12 @@
 
 ; problem with evaluate
 (evaluate {:operator / :left {:value 1} :right {:value 0}})
+
+(defn save-evaluate [tree]
+  "safely evaluate tree, return nil on ArithmeticException"
+  (try
+    (evaluate tree)
+    (catch ArithmeticException e nil)))
+
+; and a demonstration
+(save-evaluate {:operator / :left {:value 1} :right {:value 0}})
