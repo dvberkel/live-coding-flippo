@@ -15,3 +15,5 @@
 (evaluate {:operator + :left {:value 1} :right {:value 2}})
 
 
+; problem with evaluate
+(evaluate {:operator / :left {:value 1} :right {:value 0}})
