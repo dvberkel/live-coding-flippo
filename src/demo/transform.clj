@@ -32,3 +32,22 @@
 (g)
 (g)
 (g)
+
+(defn decorate [operators values tree]
+  "Transforms a structured tree into a tree ready for evaluation. It walks the tree
+   and transform nil nodes into value-nodes, and non-nil nodes into operator nodes.
+   This is done in a cyclic fashion, both for the operators and the values."
+  (let [
+        operator-generator (generator operators)
+        value-generator    (generator values)
+        transformer        (fn [tree left right]
+                             (if (nil? tree)
+                               {:value (value-generator)}
+                               {:operator (operator-generator) :left left :right right}))]
+    (map-tree transformer tree)))
+
+; a decorate example
+(decorate
+ [+ -]
+ [1 2 3]
+ {:left nil :right {:left nil :right nil}})
