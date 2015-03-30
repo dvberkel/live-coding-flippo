@@ -32,3 +32,6 @@ nil
   (if (= n 0)
     (seq [nil])
     (mapcat (fn [t] (adjoin t {:left nil :right nil})) (generate-structure-tree (dec n)))))
+
+; some examples of the generate-structure-tree
+(generate-structure-tree 2)
