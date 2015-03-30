@@ -20,3 +20,9 @@ nil
     (concat
      (map (fn [t] {:left t :right (:right tree)}) (adjoin (:left tree) part))
      (map (fn [t] {:left (:left tree) :right t}) (adjoin (:right tree) part)))))
+
+; some examples of the adjoin function
+(adjoin nil {:left nil :right nil})
+(adjoin
+ {:left nil :right nil}
+ {:left nil :right nil})
