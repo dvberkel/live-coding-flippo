@@ -9,3 +9,5 @@ nil
 {:left nil :right nil}
 {:left {:left nil :righ :nil} :right nil}
 
+; keys are accessor functions for maps
+(:right {:left nil :right {:left nil :right nil}})
