@@ -13,3 +13,9 @@
 ; there is syntactic sugar
 [1 2 3 4]      ; for arrays
 { "a" 1 "b" 2} ; for maps
+
+; def binds a variable
+(def a 2)
+
+; that can be used in expressions
+(* 3 a)
