@@ -16,3 +16,19 @@
               1
               (+ left right)))
           {:left nil :right nil})
+
+(defn generator [elements]
+  "Creates a generator that loops through the vector elements"
+  (let [index (atom 0)]
+    (fn []
+      (let [current-index @index]
+        (do
+          (swap! index #(mod (inc %) (count elements)))
+          (nth elements current-index))))))
+
+; a generator example
+(def g (generator [1 2 3]))
+(g)
+(g)
+(g)
+(g)
