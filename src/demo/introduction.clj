@@ -25,3 +25,9 @@
 
 ; that can be used in expressions
 (mult3 a)
+
+;; How to solve 24 puzzle
+; 1. Generate all trees
+; 2. Assign all possible operator
+; 3. Assign all possible values
+; 4. Evaluate & check
