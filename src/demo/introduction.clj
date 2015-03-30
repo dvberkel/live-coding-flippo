@@ -9,3 +9,7 @@
 (+ 1 2)
 (* 2 3)
 (* 2 (+ 1 2))
+
+; there is syntactic sugar
+[1 2 3 4]      ; for arrays
+{ "a" 1 "b" 2} ; for maps
