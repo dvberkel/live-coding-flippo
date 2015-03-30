@@ -10,4 +10,8 @@
     ((:operator tree) (evaluate (:left tree)) (evaluate (:right tree)))
     (:value tree)))
 
+; some examples of evaluate
+(evaluate {:value 1})
+(evaluate {:operator + :left {:value 1} :right {:value 2}})
+
 
