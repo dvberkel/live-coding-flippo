@@ -11,3 +11,12 @@ nil
 
 ; keys are accessor functions for maps
 (:right {:left nil :right {:left nil :right nil}})
+
+
+(defn adjoin [tree part]
+  "Return a sequence of trees where each leave of tree is replaced once with part"
+  (if (nil? tree)
+    (seq [part])
+    (concat
+     (map (fn [t] {:left t :right (:right tree)}) (adjoin (:left tree) part))
+     (map (fn [t] {:left (:left tree) :right t}) (adjoin (:right tree) part)))))
