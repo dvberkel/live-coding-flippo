@@ -19,3 +19,9 @@
 
 ; that can be used in expressions
 (* 3 a)
+
+; defn binds a function
+(defn mult3 [n] (* 3 n))
+
+; that can be used in expressions
+(mult3 a)
