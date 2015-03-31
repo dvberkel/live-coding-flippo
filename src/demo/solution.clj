@@ -36,3 +36,5 @@
       (str (subtree (:left tree))
            (operator-representation (:operator tree))
            (subtree (:right tree))))))
+
+(infix (first (solve [3 3 8 8])))
