@@ -5,4 +5,22 @@
   (:use [clojure.math.combinatorics :only [selections permutations]]))
 
 ; Putting it all together
+; combinatorics example
 (permutations [1 2 3])
+(selections [:a :b] 2)
+
+(defn solve
+  ([values]
+   "Returns all trees that use the standard arithmetic operators to form 24"
+   (solve 24 values))
+  ([target values]
+   "Returns all trees that use the standard arithmetic operators to form target"
+   (solve [+ - * /] target values))
+  ([operators target values]
+   "Returns all trees that use operators to form target"
+   (filter #(= target (save-evaluate %))
+           (let [nodes (dec (count values))]
+             (for [os (selections operators nodes)
+                   vs (permutations values)
+                   tree (generate-structure-tree nodes)]
+               (decorate os vs tree))))))
